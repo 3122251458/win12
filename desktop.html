@@ -1043,6 +1043,68 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 			<img src="icon/feedback.svg">
 			<p>反馈中心</p>
 		</div>
+
+
+
+
+
+
+
+
+
+
+		
+<!-- 桌面图标 -->
+<div class="b" id="website-icon" ondblclick="openWebsiteWindow()" ontouchstart="openWebsiteWindow()" appname="website">
+    <img src="path_to_icon_image.png" alt="Website Icon">
+    <p>Website Name</p>
+</div>
+
+<!-- 网站窗口（初始时隐藏） -->
+<div class="window webapp" id="website-window" style="display: none; width: 300px; height: 200px; overflow: hidden;">
+    <div class="titbar">
+        <p>Website Title</p>
+        <div>
+            <i class="bi bi-x wbtg" onclick="closeWebsiteWindow()"></i>
+        </div>
+    </div>
+    <div class="content">
+        <!-- 这里使用 iframe 来显示网页内容 -->
+        <iframe src="http://www.yourwebsite.com" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+    </div>
+</div>
+
+<script>
+    // 双击图标时调用的函数
+    function openWebsiteWindow() {
+        var websiteWindow = document.getElementById('website-window');
+        // 显示窗口，并添加到文档的末尾
+        websiteWindow.style.display = 'block';
+        document.body.appendChild(websiteWindow);
+    }
+
+    // 关闭网站窗口的函数
+    function closeWebsiteWindow() {
+        var websiteWindow = document.getElementById('website-window');
+        // 隐藏窗口，并从文档中移除
+        websiteWindow.style.display = 'none';
+        websiteWindow.remove();
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
 		<span class="choose">
 		</span>
 		<p style="background-color: rgba(11,45,14,0);z-index:1;position: absolute;top:0px;left:0px;height:100%;width:100%" oncontextmenu="return showcm(event,'desktop');"></p>
