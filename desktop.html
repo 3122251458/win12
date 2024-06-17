@@ -1027,6 +1027,10 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 			<img src="icon/setting.svg">
 			<p>设置</p>
 		</div>
+		<div class="b" ondblclick="openapp('setting');" ontouchstart="openapp('setting');" oncontextmenu="return showcm(event,'desktop.icon',['setting',-1]);" appname="setting">
+			<img src="icon/setting.svg">
+			<p>设置</p>
+		</div>
 		<div class="b" ondblclick="openapp('about');" ontouchstart="openapp('about');" oncontextmenu="return showcm(event,'desktop.icon',['about',-1]);" appname="about">
 			<img src="icon/about.svg">
 			<p>关于 Win12 网页版</p>
