@@ -3123,6 +3123,108 @@ function openapp(name) {
     }, 500);
 }
 // 窗口操作
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 假设已经存在一个名为 openapp 的函数用于打开应用
+// 如果没有，您需要创建这个函数来处理应用的打开逻辑
+
+// 添加一个新应用到任务栏和窗口管理
+function addAppToTaskbar(appId, appName, iconSrc, clickCallback) {
+    const newApp = document.createElement('a');
+    newApp.className = appId;
+    newApp.onclick = function() { clickCallback(appId); };
+    newApp.innerHTML = `<img src="${iconSrc}"> <p>${appName}</p>`;
+    document.getElementById('taskbar').appendChild(newApp);
+    // 更新任务栏应用计数
+    document.getElementById('taskbar').setAttribute('count', parseInt(document.getElementById('taskbar').getAttribute('count')) + 1);
+}
+
+// 打开网站窗口的函数
+function openWebsiteWindow(appId) {
+    // 显示窗口
+    document.getElementById('website-window').style.display = 'block';
+    // 将窗口添加到页面中，如果它还没有被添加
+    if (!document.getElementById('website-window').parentNode) {
+        document.body.appendChild(document.getElementById('website-window'));
+    }
+    // 将焦点移到窗口上
+    document.getElementById('website-window').classList.add('foc');
+    // 添加到任务栏（如果尚未添加）
+    if (!document.getElementById('taskbar').contains(document.querySelector(`a.${appId}`))) {
+        addAppToTaskbar(appId, 'Website Name', 'path_to_icon_image.png', openWebsiteWindow);
+    }
+}
+
+// 关闭网站窗口的函数
+function closeWebsiteWindow(appId) {
+    // 隐藏窗口
+    document.getElementById('website-window').style.display = 'none';
+    // 从任务栏中移除应用
+    const appLink = document.querySelector(`a.${appId}`);
+    if (appLink) {
+        appLink.remove();
+        // 更新任务栏应用计数
+        document.getElementById('taskbar').setAttribute('count', parseInt(document.getElementById('taskbar').getAttribute('count')) - 1);
+    }
+}
+
+// 双击桌面图标时调用的函数
+function onDesktopIconDoubleClick(event) {
+    const iconElement = event.target;
+    // 假设每个图标都有一个 'appname' 属性
+    const appName = iconElement.getAttribute('appname');
+    // 根据应用名称调用相应的打开函数
+    if (appName === 'website') {
+        openWebsiteWindow(appName);
+    }
+}
+
+// 为桌面图标添加双击事件监听器
+document.querySelectorAll('#desktop > div').forEach(icon => {
+    icon.addEventListener('dblclick', onDesktopIconDoubleClick);
+});
+
+// 初始化时检查并打开网站窗口（如果需要）
+document.addEventListener('DOMContentLoaded', function() {
+    // 这里可以添加逻辑来决定是否在页面加载时打开网站窗口
+    // 例如，如果用户之前打开了窗口，可以在页面加载时再次打开它
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function showwin(name) {
     $('.window.' + name).addClass('show-begin');
     setTimeout(() => { $('.window.' + name).addClass('show'); }, 0);
