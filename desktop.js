@@ -507,6 +507,67 @@ let nts = {
             { type: 'detail', text: '更多', js: "closenotice();openapp('about');if($('.window.about').hasClass('min'))minwin('about');$('.dock.about').removeClass('show')" },
         ]
     },
+
+
+
+
+
+
+
+// 假设这是原来处理反馈中心事件的函数部分
+function showFeedbackCenter() {
+    // 创建一个新的div元素作为模态框
+    var modal = document.createElement('div');
+    modal.id = 'feedback-modal';
+    modal.className = 'modal'; // 确保有相应的.modal类在CSS中定义
+    modal.style.display = 'block'; // 显示模态框
+
+    // 创建iframe元素并设置其src属性为新的URL
+    var iframe = document.createElement('iframe');
+    iframe.src = 'http://dsw.jun04.top/';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.frameBorder = '0';
+
+    // 设置模态框的尺寸和样式
+    modal.style.position = 'fixed'; // 固定定位
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.zIndex = '1000'; // 确保模态框在最上层
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // 半透明背景
+
+    // 将iframe添加到模态框中
+    modal.appendChild(iframe);
+
+    // 将模态框添加到body中
+    document.body.appendChild(modal);
+
+    // 添加关闭模态框的功能
+    modal.onclick = function(event) {
+        if (event.target === modal) { // 点击模态框外层关闭
+            document.body.removeChild(modal);
+        }
+    };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
     'feedback': {
         cnt: `<p class="tit">反馈</p>
             <p>我们非常注重用户的体验与反馈</p>
