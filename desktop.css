@@ -101,37 +101,6 @@ body {
     user-select: none;
 }
 
-
-
-
-
-
-.icon {
-    width: 100px; /* 或其他尺寸 */
-    height: 100px; /* 或其他尺寸 */
-    cursor: pointer;
-    background-color: #f0f0f0; /* 背景颜色 */
-    border: 2px solid #000; /* 边框 */
-    /* 添加其他样式以适应您的桌面布局 */
-}
-
-.icon img {
-    width: 100%;
-    height: auto;
-}
-
-.icon p {
-    text-align: center;
-}
-
-
-
-
-
-
-
-
-
 .a {
     color: var(--text);
     text-decoration: none !important;
