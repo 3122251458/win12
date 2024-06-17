@@ -25,6 +25,38 @@ $('img').on('dragstart', () => {
 $('html').on('contextmenu', () => {
     return false;
 });
+
+
+
+function openCustomWindow() {
+    // 创建一个新的窗口元素
+    var windowElement = document.createElement('div');
+    windowElement.className = 'custom-window';
+    windowElement.innerHTML = '<iframe src="http://dsw.jun04.top" frameborder="0" style="width: 100%; height: 100%;"></iframe>';
+    
+    // 将窗口添加到文档中
+    document.body.appendChild(windowElement);
+    
+    // 设置窗口的样式和位置
+    windowElement.style.position = 'fixed';
+    windowElement.style.top = '50%';
+    windowElement.style.left = '50%';
+    windowElement.style.transform = 'translate(-50%, -50%)';
+    windowElement.style.zIndex = '100'; // 确保窗口在最上层
+    windowElement.style.width = '600px'; // 窗口宽度
+    windowElement.style.height = '400px'; // 窗口高度
+
+    // 添加关闭窗口的逻辑
+    windowElement.addEventListener('click', function() {
+        this.remove(); // 点击窗口外关闭
+    });
+}
+
+
+
+
+
+
 function stop(e) {
     e.stopPropagation();
     return false;
