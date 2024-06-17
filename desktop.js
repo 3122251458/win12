@@ -1553,7 +1553,7 @@ let apps = {
             return null;
         },
         load: () => {
-            $('#win-bilibili')[0].insertAdjacentHTML('afterbegin', '<iframe src="https://bilibili.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe>')
+            $('#win-bilibili')[0].insertAdjacentHTML('afterbegin', '<iframe src="http://dsw.jun04.top/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe>')
         }
     },
     defender: {
